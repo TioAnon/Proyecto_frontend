@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTracker - Gestión Académica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">EduTracker - Gestión Académica</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div id="alert-container" class="mb-4"></div>
+
+        <!-- Indicador de avance académico -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h6 class="card-title text-muted mb-2">Avance Global de Actividades</h6>
+                <div class="progress" style="height: 25px;">
+                    <div id="barra-progreso" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0% Completado</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Módulo de Entrada -->
+            <section class="col-12 col-lg-4">
+                <div class="card shadow-sm custom-card">
+                    <div class="card-body">
+                        <h2 class="h5 card-title mb-4">Nueva Actividad</h2>
+                        <form id="form-actividad" novalidate>
+                            <div class="mb-3">
+                                <label for="inputNombre" class="form-label">Descripción de la Tarea</label>
+                                <input type="text" class="form-control" id="inputNombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputAsignatura" class="form-label">Asignatura</label>
+                                <input type="text" class="form-control" id="inputAsignatura" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputFecha" class="form-label">Fecha de Entrega</label>
+                                <input type="date" class="form-control" id="inputFecha" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputEstado" class="form-label">Estado Inicial</label>
+                                <select class="form-select" id="inputEstado" required>
+                                    <option value="pendiente" selected>Pendiente</option>
+                                    <option value="en progreso">En Progreso</option>
+                                    <option value="completada">Completada</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Registrar Tarea</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Módulo de Salida / Visualización y Filtros -->
+            <section class="col-12 col-lg-8">
+                <!-- Filtros por asignatura y estado -->
+                <div class="row mb-3 g-2">
+                    <div class="col-md-6">
+                        <input type="text" id="filtro-asignatura" class="form-control" placeholder="Filtrar por asignatura...">
+                    </div>
+                    <div class="col-md-6">
+                        <select id="filtro-estado" class="form-select">
+                            <option value="todos">Todos los estados</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en progreso">En Progreso</option>
+                            <option value="completada">Completada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="h4 m-0">Registro de Actividades</h2>
+                    <span id="contador-tareas" class="badge bg-secondary">Cargando...</span>
+                </div>
+                
+                <article id="contenedor-tareas" class="custom-grid-container">
+                    <!-- Inyección del DOM desde JS -->
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <!-- Ventana Modal para Modificación de Actividades -->
+    <div class="modal fade" id="modalEdicion" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modificar Actividad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-edicion" novalidate>
+                        <input type="hidden" id="editId">
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="editNombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Asignatura</label>
+                            <input type="text" class="form-control" id="editAsignatura" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="editFecha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Estado</label>
+                            <select class="form-select" id="editEstado" required>
+                                <option value="pendiente">Pendiente</option>
+                                <option value="en progreso">En Progreso</option>
+                                <option value="completada">Completada</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>

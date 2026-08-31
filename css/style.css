@@ -1,0 +1,43 @@
+:root {
+    --color-primary: #4e73df;
+    --color-secondary: #1cc88a;
+    --color-danger: #e74a3b;
+    --color-bg: #f8f9fc;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    background-color: var(--color-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+.custom-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    transition: transform 0.2s ease-in-out;
+}
+
+.custom-card:hover {
+    transform: translateY(-3px);
+}
+
+.custom-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Indicadores de Estado Visuales */
+.estado-badge {
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.estado-pendiente { background-color: #f6c23e; color: #fff; }
+.estado-completado { background-color: var(--color-secondary); color: #fff; }
