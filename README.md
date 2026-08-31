@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EduTracker - Plataforma de Gestión de Actividades Académicas
 
 ## 1. Descripción de la Problemática y Solución
@@ -20,3 +21,6 @@ La solución implementada en la Universidad Andrés Bello permite a los estudian
 2. Navegar a la carpeta raíz del proyecto.
 3. Ejecutar el archivo `index.html` en un navegador web.
 4. No se requieren dependencias del lado del servidor (backend) ni bases de datos; la persistencia es simulada mediante arreglos de objetos en JavaScript[cite: 2].
+=======
+# Proyecto_frontend
+>>>>>>> 9e67f6776d38dad87a89b18bc62fcf7d54818e2b
