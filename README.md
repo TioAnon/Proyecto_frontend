@@ -19,4 +19,4 @@ La solución implementada en la Universidad Andrés Bello permite a los estudian
 1. Clonar el repositorio localmente.
 2. Navegar a la carpeta raíz del proyecto.
 3. Ejecutar el archivo `index.html` en un navegador web.
-4. No se requieren dependencias del lado del servidor (backend) ni bases de datos; la persistencia es simulada mediante arreglos de objetos en JavaScript[cite: 2].
+4. No se requieren dependencias del lado del servidor (backend) ni bases de datos; la persistencia es simulada mediante arreglos de objetos en JavaScript.
